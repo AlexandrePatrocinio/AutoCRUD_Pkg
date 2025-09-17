@@ -50,16 +50,16 @@ I used the idea to easily generate an API that implements a CRUD automatically (
 
 ### Endpoints examples
 
-POST http://domain.com/persons
+**POST http://domain.com/persons
 body
 {
     "Alias": "Ben",
     "Name": "Bernardo Barbosa Silva",
     "Birthdate": "1991-10-09",
     "Stack": ["C#","Unity","Postgres"]
-}
+}**
 
-RESPONSE http 201 Created
+*RESPONSE http 201 Created
 body
 {
     "id": "664ffa0e-2d4d-4516-858c-39aab60b1aa4",
@@ -71,10 +71,10 @@ body
         "Unity",
         "Postgres"
     ]
-}
+}*
 --------------------------------------------------------------------------
 
-POST http://domain.com/persons/batch
+**POST http://domain.com/persons/batch
 body
 [
     {
@@ -95,14 +95,14 @@ body
         "birthdate": "1990-01-13T00:00:00",
         "stack": ["F#","MAUI","CosmoDB"]
     }    
-]
+]**
 
-RESPONSE http 201 Created
+*RESPONSE http 201 Created
 body
-3 /*Number of entities created*/
+3 /*Number of entities created*/*
 --------------------------------------------------------------------------
 
-PUT http://domain.com/persons
+**PUT http://domain.com/persons
 body
 {
     "id": "664ffa0e-2d4d-4516-858c-39aab60b1aa4",
@@ -110,9 +110,9 @@ body
     "name": "Bernardo Barbosa Silva",
     "birthdate": "1990-10-09T00:00:00",
     "stack": ["C#","Unity","MongoDB"]
-}
+}**
 
-RESPONSE http 200 OK
+*RESPONSE http 200 OK
 body
 {
     "id": "664ffa0e-2d4d-4516-858c-39aab60b1aa4",
@@ -124,12 +124,12 @@ body
         "Unity",
         "MongoDB"
     ]
-}
+}*
 --------------------------------------------------------------------------
 
-GET http://domain.com/persons?t=ale /*t = search term*/
+**GET http://domain.com/persons?t=ale /*t = search term*/**
 
-RESPONSE http 200 OK
+*RESPONSE http 200 OK
 body
 [
     {
@@ -154,12 +154,12 @@ body
             "MariaDB"
         ]
     }
-]
+]*
 --------------------------------------------------------------------------
 
-GET http://domain.com/persons?o=Alias&pg=2&sz=3 /*o = order by field; pg = page number; sz = page size*/
+**GET http://domain.com/persons?o=Alias&pg=2&sz=3 /*o = order by field; pg = page number; sz = page size*/**
 
-RESPONSE http 200 OK
+*RESPONSE http 200 OK
 body
 [
     {
@@ -195,12 +195,12 @@ body
             "MongoDB"
         ]
     }
-]
+]*
 --------------------------------------------------------------------------
 
-GET http://domain.com/persons/e68df3dd-ee28-4067-a4ea-dca421828306
+**GET http://domain.com/persons/e68df3dd-ee28-4067-a4ea-dca421828306**
 
-RESPONSE http 200 OK
+*RESPONSE http 200 OK
 body
 {
     "id": "e68df3dd-ee28-4067-a4ea-dca421828306",
@@ -212,12 +212,12 @@ body
         "node",
         "MariaDB"
     ]
-}
+}*
 --------------------------------------------------------------------------
 
-DELETE http://domain.com/persons/e55fa387-2db1-4c01-99ac-89906c2b8cae
+**DELETE http://domain.com/persons/e55fa387-2db1-4c01-99ac-89906c2b8cae**
 
-RESPONSE http 200 OK
+*RESPONSE http 200 OK
 body
 {
     "id": "e55fa387-2db1-4c01-99ac-89906c2b8cae",
@@ -229,14 +229,14 @@ body
         "React",
         "Oracle"
     ]
-}
+}*
 --------------------------------------------------------------------------
 
-GET http://domain.com/count-persons
+**GET http://domain.com/count-persons**
 
-RESPONSE http 200 OK
+*RESPONSE http 200 OK
 body
-32
+32*
 
 ### Package dependencies
 
