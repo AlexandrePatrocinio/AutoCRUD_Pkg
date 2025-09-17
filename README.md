@@ -87,6 +87,8 @@ GET http://domain.com/count-persons
 
 ### Package dependencies
 
-- Dapper Version="2.1.35"
-- Npgsql Version="8.0.3"
-- System.Data.SqlClient Version="4.8.6
+- Dapper Version="2.1.66"
+- Microsoft.AspNetCore.Mvc Version="2.3.0"
+- Npgsql Version="9.0.3"
+- Microsoft.Data.SqlClient Version="6.1.0"
+- System.Data.SqlClient Version="4.9.0
