@@ -53,37 +53,190 @@ I used the idea to easily generate an API that implements a CRUD automatically (
 POST http://domain.com/persons
 body
 {
-    "alias": "bri",
-    "name": "Fabricio Miranda Lins",
-    "birthdate": "2000-09-22T00:00:00",
+    "Alias": "Ben",
+    "Name": "Bernardo Barbosa Silva",
+    "Birthdate": "1991-10-09",
+    "Stack": ["C#","Unity","Postgres"]
+}
+
+RESPONSE http 201 Created
+body
+{
+    "id": "664ffa0e-2d4d-4516-858c-39aab60b1aa4",
+    "alias": "Ben",
+    "name": "Bernardo Barbosa Silva",
+    "birthdate": "1991-10-09T00:00:00",
     "stack": [
-        "java",
-        "spring",
-        "oracle"
+        "C#",
+        "Unity",
+        "Postgres"
     ]
 }
+--------------------------------------------------------------------------
+
+POST http://domain.com/persons/batch
+body
+[
+    {
+        "alias": "Ale",
+        "name": "Alexandre Roberto Alcantra",
+        "birthdate": "1996-02-21T00:00:00",
+        "stack": ["kotlin","mobile","MongoDb"]
+    },
+    {
+        "alias": "ALP",
+        "name": "Alexandre Lino Pereira",
+        "birthdate": "1998-05-17T00:00:00",
+        "stack": ["elixir","Fenix","MariaDB"]
+    },
+    {
+        "alias": "Bar",
+        "name": "Bruno Almeida Leite",
+        "birthdate": "1990-01-13T00:00:00",
+        "stack": ["F#","MAUI","CosmoDB"]
+    }    
+]
+
+RESPONSE http 201 Created
+body
+3 /*Number of entities created*/
+--------------------------------------------------------------------------
 
 PUT http://domain.com/persons
 body
 {
-    "id": "52d32def-ebb7-4b09-a38a-80b9061c44df",
-    "alias": "bri",
-    "name": "Fabrício Miranda Lins",
-    "birthdate": "2000-09-20T00:00:00",
-    "stack": [
-        "java",
-        "spring",
-        "oracle"
-    ]
+    "id": "664ffa0e-2d4d-4516-858c-39aab60b1aa4",
+    "alias": "Ben",
+    "name": "Bernardo Barbosa Silva",
+    "birthdate": "1990-10-09T00:00:00",
+    "stack": ["C#","Unity","MongoDB"]
 }
 
-GET http://domain.com/persons?t=fa
+RESPONSE http 200 OK
+body
+{
+    "id": "664ffa0e-2d4d-4516-858c-39aab60b1aa4",
+    "alias": "Ben",
+    "name": "Bernardo Barbosa Silva",
+    "birthdate": "1990-10-09T00:00:00",
+    "stack": [
+        "C#",
+        "Unity",
+        "MongoDB"
+    ]
+}
+--------------------------------------------------------------------------
 
-GET http://domain.com/persons/52d32def-ebb7-4b09-a38a-80b9061c44df
+GET http://domain.com/persons?t=ale /*t = search term*/
 
-DELETE http://domain.com/persons/52d32def-ebb7-4b09-a38a-80b9061c44df
+RESPONSE http 200 OK
+body
+[
+    {
+        "id": "da1f440c-b603-462b-8fc2-d5e4425719a9",
+        "alias": "Ale",
+        "name": "Alexandre Roberto Alcantra",
+        "birthdate": "1996-02-21T00:00:00",
+        "stack": [
+            "kotlin",
+            "mobile",
+            "MongoDb"
+        ]
+    },
+    {
+        "id": "ec93f941-32d2-45d2-928f-96ffa81b1759",
+        "alias": "ALP",
+        "name": "Alexandre Lino Pereira",
+        "birthdate": "1998-05-17T00:00:00",
+        "stack": [
+            "elixir",
+            "Fenix",
+            "MariaDB"
+        ]
+    }
+]
+--------------------------------------------------------------------------
+
+GET http://domain.com/persons?o=Alias&pg=2&sz=3 /*o = order by field; pg = page number; sz = page size*/
+
+RESPONSE http 200 OK
+body
+[
+    {
+        "id": "d4f7779c-8887-4b69-894a-15de363074b2",
+        "alias": "Bar",
+        "name": "Bruno Almeida Leite",
+        "birthdate": "1990-01-13T00:00:00",
+        "stack": [
+            "F#",
+            "MAUI",
+            "CosmoDB"
+        ]
+    },
+    {
+        "id": "604a4956-9518-41a5-8bc4-30116751e7f5",
+        "alias": "Lau",
+        "name": "Lauro Mendonça Magalhães",
+        "birthdate": "1985-07-06T00:00:00",
+        "stack": [
+            "Java",
+            "React",
+            "Oracle"
+        ]
+    },
+    {
+        "id": "664ffa0e-2d4d-4516-858c-39aab60b1aa4",
+        "alias": "Ben",
+        "name": "Bernardo Barbosa Silva",
+        "birthdate": "1990-10-09T00:00:00",
+        "stack": [
+            "C#",
+            "Unity",
+            "MongoDB"
+        ]
+    }
+]
+--------------------------------------------------------------------------
+
+GET http://domain.com/persons/e68df3dd-ee28-4067-a4ea-dca421828306
+
+RESPONSE http 200 OK
+body
+{
+    "id": "e68df3dd-ee28-4067-a4ea-dca421828306",
+    "alias": "Mia",
+    "name": "Michelle Miranda Golveia",
+    "birthdate": "1996-09-05T00:00:00",
+    "stack": [
+        "Javascript",
+        "node",
+        "MariaDB"
+    ]
+}
+--------------------------------------------------------------------------
+
+DELETE http://domain.com/persons/e55fa387-2db1-4c01-99ac-89906c2b8cae
+
+RESPONSE http 200 OK
+body
+{
+    "id": "e55fa387-2db1-4c01-99ac-89906c2b8cae",
+    "alias": "LMM",
+    "name": "Lauro Mendonça Magalhães",
+    "birthdate": "1985-07-06T00:00:00",
+    "stack": [
+        "Java",
+        "React",
+        "Oracle"
+    ]
+}
+--------------------------------------------------------------------------
 
 GET http://domain.com/count-persons
+
+RESPONSE http 200 OK
+body
+32
 
 ### Package dependencies
 
