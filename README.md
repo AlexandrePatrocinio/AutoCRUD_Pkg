@@ -174,17 +174,6 @@ body
         ]
     },
     {
-        "id": "604a4956-9518-41a5-8bc4-30116751e7f5",
-        "alias": "Lau",
-        "name": "Lauro Mendonça Magalhães",
-        "birthdate": "1985-07-06T00:00:00",
-        "stack": [
-            "Java",
-            "React",
-            "Oracle"
-        ]
-    },
-    {
         "id": "664ffa0e-2d4d-4516-858c-39aab60b1aa4",
         "alias": "Ben",
         "name": "Bernardo Barbosa Silva",
@@ -193,6 +182,17 @@ body
             "C#",
             "Unity",
             "MongoDB"
+        ]
+    },    
+    {
+        "id": "604a4956-9518-41a5-8bc4-30116751e7f5",
+        "alias": "Lau",
+        "name": "Lauro Mendonça Magalhães",
+        "birthdate": "1985-07-06T00:00:00",
+        "stack": [
+            "Java",
+            "React",
+            "Oracle"
         ]
     }
 ]*
